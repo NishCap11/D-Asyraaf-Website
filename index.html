@@ -156,25 +156,26 @@
   .amen-card p{color:#cfe0dc; font-size:0.92rem;}
 
   /* ===== Gallery ===== */
-  .gallery-grid{
-    display:grid; 
-    grid-template-columns:repeat(2, 1fr) ;
-    grid-template-rows: repeat(3, 1fr); 
-    gap:20px; 
-    max-width: none; /* Adjust this to make the overall grid bigger */ 
-    margin: 0;
-    padding: 0;
-  }
-  .gallery-grid div {
-  position: relative; /* Allows child elements to be positioned over it */
-  border-radius: 10px;
-  overflow: hidden; /* Ensures the image doesn't bleed out of the rounded corners */
-  align-items: center;
-  justify-content: center;
-  min-height: 300px;
-  aspect-ratio: 1 / 1; /* This forces the container to be a perfect square */
-  position: relative;
+
+  .gallery-grid {
+  display: grid;
+  /* Exactly 2 columns, 3 rows */
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  
+  
+  /* Remove all space */
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.gallery-grid div {
+  aspect-ratio: 16 / 9; /* Keep perfect squares */
   overflow: hidden;
+  position: relative;
+  border-radius: 10px; /* Remove rounded corners to ensure no gaps */
 }
 
 /* This targets the image inside the div */
@@ -298,6 +299,16 @@
     .amen-grid, .test-grid{grid-template-columns:1fr;}
     .hero{padding-top:140px;}
   }
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr; /* Forces 1 column */
+    grid-template-rows: auto;    /* Allows rows to adjust height */
+  }
+
+  .gallery-grid div {
+    aspect-ratio: 16 / 9; /* You might prefer a wider look on mobile */
+  }
+}
 </style>
 </head>
 <body>
@@ -377,7 +388,7 @@
   <div class="wrap about-grid">
     <div class="about-photo">
       <div class="about-photo">
-  <img src="images/rumah.jpg" alt="D'Asyraaf Homestay Exterior" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+  <img src="rumah.jpg" alt="D'Asyraaf Homestay Exterior" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
 </div>
     </div>
     <div>
@@ -445,12 +456,12 @@
       <p>Swap these placeholders for real photos of the living room, bedrooms, kitchen and exterior.</p>
     </div>
     <div class="gallery-grid">
-      <div><img src="images/MasterBedroom.jpg" alt="Bedroom 1"></div>
-      <div><img src="images/MasterBedroom.jpg" alt="Bedroom 2"></div>
-      <div><img src="images/firstroom.jpg" alt="Bedroom 3"></div>
-      <div><img src="images/MasterBedroom.jpg" alt="Bedroom 4"></div>
-      <div><img src="images/MasterBedroom.jpg" alt="Bedroom 5"></div>
-      <div><img src="images/MasterBedroom.jpg" alt="Bedroom 6"></div>
+      <div><img src="MasterBedroom.jpg" alt="Bedroom 1"></div>
+      <div><img src="MasterBedroom.jpg" alt="Bedroom 2"></div>
+      <div><img src="firstroom.jpg" alt="Bedroom 3"></div>
+      <div><img src="MasterBedroom.jpg" alt="Bedroom 4"></div>
+      <div><img src="MasterBedroom.jpg" alt="Bedroom 5"></div>
+      <div><img src="MasterBedroom.jpg" alt="Bedroom 6"></div>
     </div>
     <p class="gallery-note"></p>
   </div>
